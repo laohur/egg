@@ -31,8 +31,10 @@ http://localhost/product/1
 <h1>淘理财</h1>
 <h3>产品详情</h3>
 {{--<a href="/home" target="_blank" >用户中心</a><p></p>--}}
-<a href="/" target="_blank" >首页</a>
+<p><a href="/" target="_blank" >首页</a></p>
 
+
+<p><a href="/" target="_blank" >现在购买</a></p>
 <div id="list">
     <table id="list_table">
         <tr id="head_row">
@@ -76,6 +78,8 @@ http://localhost/product/1
             $('#list_table').append(tr);
     }
 </script>
+
+
 </center>
 </body>
 </html>
