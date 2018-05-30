@@ -10,6 +10,10 @@ egg淘理财是一个理财产品查询网站，使用laravel开发。
 php artisan key:generate 
 php artisan config:cache
 
+添加服务器路由
+nginx server{    
+    root html/egg/public;
+}
 启动wnmp，浏览器访问
 前台：http://localhost/  
 后台：http://localhost/admin
