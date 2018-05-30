@@ -18,5 +18,8 @@ nginx server{
 前台：http://localhost/  
 后台：http://localhost/admin
 
+数据库配置在.env
+默认用户  sd@dsf.com  666666
+
 
 
