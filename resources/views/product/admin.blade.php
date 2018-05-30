@@ -85,6 +85,9 @@ Route::get("/search/{keyword}",'ProductController@search');  //返回查询json�
             $('#list_table').append(tr);
         }
     }
+    
+    $("td").css('text-align','center');
+
 </script>
 </center>
 </body>

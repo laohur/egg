@@ -64,7 +64,7 @@ introduction
     {{ csrf_field()  }}
 
     <table>
-        <tr>
+        <tr >
             <td><label>产品名称：</label></td>
             <td><input type="text"   name="product_name" pattern=".{4,}" required title="最少四个字符" /></td>
         </tr>
@@ -81,7 +81,7 @@ introduction
 
         <tr>
             <td><label>起投额：</label></td>
-            <td><input type="bumber" name="min_amount"  min="1000"  /></td>
+            <td><input type="number" name="min_amount"  min="1000"  /></td>
         </tr>
 
         <tr>
@@ -134,6 +134,10 @@ introduction
     <p>    <button type="submit"> 提交产品资料 </button>    </p>
 </form>
 
+<script>
+    // $("label").css('text-align','right');
+    // $("table td:nth-child(3n)  ").css('align','center');
+</script>
 
 </center>
 </body>

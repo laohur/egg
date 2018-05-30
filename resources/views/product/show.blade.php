@@ -5,6 +5,14 @@
 http://localhost/product/1
 
 -->
+<?php
+    $areas=array("浙江省","四川省","甘肃省","湖北省");
+    $statuses=array("存续中","封闭期","过期","募集期","开放期","在售");
+    $shelfes=array("是","否"); 
+    $risks=array("高","中高","中","中低","低","较低","极低");
+    $rate=round(($product->min_rate+$product->max_rate)/200,2);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +30,7 @@ http://localhost/product/1
 
     <script>
         var product=@json($product);
+        var rate=@json($rate);
     </script>
 
 </head>
@@ -34,49 +43,97 @@ http://localhost/product/1
 <p><a href="/" target="_blank" >首页</a></p>
 
 
-<p><a href="/" target="_blank" >现在购买</a></p>
+<p><a href="/" target="_blank" >☛现在购买⇨</a></p>
+<p></p>
 <div id="list">
-    <table id="list_table">
-        <tr id="head_row">
-            <td id="product_name">产品名称</td>
-            <td id="rate">收益率</td>
-            <td id="life">投资期限</td>
-            <td id="risk">风险等级</td>
-            <td id="bank">发售银行</td>
+<form>
+<p></p>
+    <input type="range" id="input"  min=1000 max=10000 step=1000 value=10000  /><br>
+    <label>投资金额：</label>      <label id="amount"></label>  <br>
+    <label>预期收益：</label>       <label id="yield"> </label>
+</p>    
+</from>
+
+
+
+<table>
+        <tr>
+            <td><label> </label>    </td>
+            <td><label> </label></td>
+        </tr> 
+
+        <tr>
+            <td><label>产品名称：</label></td>
+            <td>{{$product->product_name}}</td>
         </tr>
-        {{--助记样例--}}
-        <tr class="data_row">
-            <a id="href" href="http://localhost/product/"+1 ><td class="product_name"></td></a>
-            <td class="rate"></td>
-            <td class="life"></td>
-            <td clas="risk"></td>
-            <td class="bank"></td>
+
+        <tr>
+            <td><label>发售银行：</label></td>
+            <td>{{$product->bank}}</td>
         </tr>
+
+        <tr>
+            <td><label>产品状态：</label></td>
+            <td>{{ $statuses[$product->status] }}</td>
+        </tr>
+
+        <tr>
+            <td><label>起投额：</label></td>
+            <td>{{$product->min_amount}}</td>
+        </tr>
+
+        <tr>
+            <td><label>在架否：</label></td>
+            <td>{{ $shelfes[$product->shelf] }}</td>
+        </tr>
+
+        <tr>
+            <td><label>风险等级：</label></td>
+            <td>{{ $risks[$product->risk] }}</td>
+        </tr>
+
+        <tr>
+            <td><label>推荐指数：</label></td>
+            <td>{{$product->rank}}</td>
+        </tr>
+        <tr>
+            <td><label>产品周期（天）：</label></td>
+            <td>{{$product->life}}</td>
+        </tr>
+        <tr>
+            <td><label>产品开始日：</label></td>
+            <td>{{$product->product_start}}</td>
+        </tr>
+        <tr>
+            <td><label>产品终止日：</label></td>
+            <td>{{$product->product_end}}</td>
+        </tr>
+        <tr>
+            <td><label>预期收益率：</label></td>
+            <td>{{  $rate.'%'   }}</td>
+        </tr>
+        <tr>
+            <td><label>所属地区：</label></td>
+            <td>{{ $areas[$product->area] }}</td>
+        </tr>
+        <tr>
+            <td><label>产品介绍：</label></td>
+            <td>{{$product->introduction}}</td>
+        </tr>
+
     </table>
 
 </div>
 
 <script type="text/javascript">
-
-    //index 根据products生成页面
-    // alert(products[5]['bank']);
-    list(product);
-
-    function list(product){
-            // var href='"http://localhost/product/'+product['product_id']+'"';
-            // var a='<a href='+href+'>'+product['product_name']+'</a>';
-            var product_name='<p><td class="product_name">'+product['product_name']+'</td>';
-
-            var rate=parseFloat(product['min_rate']+product['max_rate'])/200;
-            var rate='<p><td class="rate">'+rate.toFixed(2)+'%</td></p>';
-            var life='<p><td class="life">'+product['life']+'天</td></p>';
-            var risk='<p><td class="risk">'+risks[product['risk']]+'</td></p>';
-            var bank='<p><td class="bank">'+product['bank']+'</td></p>';
-            var tr='<tr class="data_row">'+product_name+rate+life+risk+bank+'</tr></p>';
-            console.log(tr);
-
-            $('#list_table').append(tr);
-    }
+    $("td").css('text-align','center');
+    $("#input").change(function(){
+        amount=this.value;
+        $("#amount").text(amount+'元');
+        // yield=(amount*rate/100).toFixed(2);
+        yield=(amount*rate/100);
+        $("#yield").text(yield+"元");
+    })
 </script>
 
 

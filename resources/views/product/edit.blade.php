@@ -91,7 +91,7 @@ introduction
 
         <tr>
             <td><label>起投额：</label></td>
-            <td><input type="bumber" name="min_amount"  min="1000"  /></td>
+            <td><input type="number" name="min_amount"  min="1000"  /></td>
             <td>{{$product->min_amount}}</td>
         </tr>
 
