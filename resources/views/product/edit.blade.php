@@ -71,11 +71,11 @@ introduction
             <td><label>旧值：</label></td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td><label>产品名称：</label></td>
             <td><input type="text"   name="product_name" pattern=".{4,}" required title="最少四个字符" /></td>
             <td>{{$product->product_name}}</td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td><label>发售银行：</label></td>
@@ -153,9 +153,19 @@ introduction
         </tr>
 
     </table>
-    <p>    <button type="submit"> 更新产品资料 </button>    </p>
+    <p>    <button type="submit" id="submit"> 更新产品资料 </button>    </p>
 </form>
 
+<script>
+    $("form").click(function(){
+        if(    $("input[name='product_start']").val() > $("input[name='product_end']").val()){
+                alert("日期错误！");
+                $("#submit").hide();
+            }else{
+                $("#submit").show();
+            }
+    })
+</script>
 
 </center>
 </body>

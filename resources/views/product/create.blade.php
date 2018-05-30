@@ -131,12 +131,23 @@ introduction
         </tr>
 
     </table>
-    <p>    <button type="submit"> 提交产品资料 </button>    </p>
+    <p>    <button type="submit" type="submit" > 提交产品资料 </button>    </p>
 </form>
 
 <script>
     // $("label").css('text-align','right');
     // $("table td:nth-child(3n)  ").css('align','center');
+</script>
+
+<script>
+    $("form").click(function(){
+        if(    $("input[name='product_start']").val() > $("input[name='product_end']").val()){
+                alert("日期错误！");
+                $("#submit").hide();
+            }else{
+                $("#submit").show();
+            }
+    })
 </script>
 
 </center>
