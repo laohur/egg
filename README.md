@@ -21,5 +21,4 @@ nginx server{
 数据库配置在.env
 默认用户  sd@dsf.com  666666
 
-
-
+github链接：https://github.com/laohur/egg
