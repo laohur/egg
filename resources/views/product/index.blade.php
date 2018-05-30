@@ -219,7 +219,7 @@ http://localhost/search/银行  返回搜索“银行”结果json
                 console.log(products[i]['area']);
             }
         }
-        $("#tip").text("您筛选的风险等级为"+areas[areaRound]+"的产品如下");
+        $("#tip").text("您筛选的区域为"+areas[areaRound]+"的产品如下");
         areaRound+=1;
     })
 
