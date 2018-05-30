@@ -82,10 +82,10 @@ http://localhost/product/1
             <td>{{$product->min_amount}}</td>
         </tr>
 
-        <tr>
+        <!-- <tr>
             <td><label>在架否：</label></td>
             <td>{{ $shelfes[$product->shelf] }}</td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td><label>风险等级：</label></td>
