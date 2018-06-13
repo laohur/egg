@@ -142,7 +142,7 @@ class ProductController extends Controller
         $product->min_rate=$request->get('min_rate');
         $product->area=$request->get('area');
         $product->bank=$request->get('bank');
-        $product->product_name=$request->get('product_name');
+        // $product->product_name=$request->get('product_name');
         $product->introduction=$request->get('introduction');
 
         //新增record

@@ -279,7 +279,12 @@ http://localhost/search/银行  返回搜索“银行”结果json
     //         }
     //     }
     // })
-
+    $("#head_row").children().mouseover(function(){
+        $(this).text("点击有惊喜!");
+    })
+    // $("#head_row").click(function(){
+    //     $("tip").text("点击有惊喜!");
+    // })
 </script>
 </center>
 </body>
