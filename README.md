@@ -1,4 +1,5 @@
-# egg淘理财是一个理财产品查询网站，使用laravel开发, 用于快速学习laravel.   
+# egg淘理财    
+一个理财产品查询网站，使用laravel开发, 用于快速学习laravel.   
 
 项目名称：egg    
 使用组件：wnmp(windows nginx mysql php) composer    
